@@ -1,16 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
+const usersRouter = require("./users/users.router");
 const pastesRouter = require("./pastes/pastes.router");
 
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 
-const pastes = require("./data/pastes-data");
 
 
-
-// handler
+// handlers
+app.use("/users", usersRouter);
 app.use("/pastes", pastesRouter);
 
 // TODO: Follow instructions in the checkpoint to implement ths API.
